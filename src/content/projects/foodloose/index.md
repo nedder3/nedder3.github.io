@@ -1,6 +1,6 @@
 ---
 title: "Food Loose"
-summary: "2d unity game for global game jam"
+summary: "Game made for global game jam 2024"
 date: "Jan 17 2024"
 draft: false
 tags:
@@ -23,4 +23,4 @@ Spanish:
 Controls:
 
 Player 1 plays as mouse with W A S D keys
-Player 2 plays as racoon with ARROWUP, ARROWDOWN,ARROWRIGHT ,ARROWLEF
+Player 2 plays as racoon with ARROWUP, ARROWDOWN,ARROWRIGHT ,ARROWLEFT
