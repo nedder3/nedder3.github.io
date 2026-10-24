@@ -2,33 +2,33 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "Ariel Jaime",
-  DESCRIPTION: "Welcome to Ariel Jaime, a portfolio and blog for designers and developers.",
+  TITLE: "Ariel Jaime | Senior Backend Engineer",
+  DESCRIPTION: "Senior Backend Engineer and Distributed Systems Architect specializing in Java 21, high-concurrency architectures, and scalable distributed primitives.",
   AUTHOR: "Ariel Jaime",
 }
 
 // Work Page
 export const WORK: Page = {
-  TITLE: "Work",
-  DESCRIPTION: "Places I have worked.",
+  TITLE: "Work Experience",
+  DESCRIPTION: "Professional engineering history, enterprise clients, and technical leadership roles.",
 }
 
 // Blog Page
 export const BLOG: Page = {
-  TITLE: "Blog",
-  DESCRIPTION: "Writing on topics I am passionate about.",
+  TITLE: "Articles & Architecture",
+  DESCRIPTION: "Deep dives on concurrency, distributed systems, cache topologies, and modern Java runtime internals.",
 }
 
 // Projects Page 
 export const PROJECTS: Page = {
-  TITLE: "Projects",
-  DESCRIPTION: "Recent projects I have worked on.",
+  TITLE: "Engineering Projects",
+  DESCRIPTION: "Production systems, distributed infrastructure, non-blocking libraries, and open-source tooling.",
 }
 
 // Search Page
 export const SEARCH: Page = {
   TITLE: "Search",
-  DESCRIPTION: "Search all posts and projects by keyword.",
+  DESCRIPTION: "Search technical articles and projects by keyword.",
 }
 
 // Links
@@ -40,10 +40,6 @@ export const LINKS: Links = [
   { 
     TEXT: "Work", 
     HREF: "/work", 
-  },
-  { 
-    TEXT: "Blog", 
-    HREF: "/blog", 
   },
   { 
     TEXT: "Projects", 
@@ -63,7 +59,7 @@ export const SOCIALS: Socials = [
     NAME: "Github",
     ICON: "github",
     TEXT: "nedder3",
-    HREF: "https://github.com/nedder3/nedder3"
+    HREF: "https://github.com/nedder3"
   },
   { 
     NAME: "LinkedIn",
@@ -78,4 +74,3 @@ export const SOCIALS: Socials = [
     HREF: "https://twitter.com/arij_dev",
   },
 ]
-

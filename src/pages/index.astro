@@ -15,28 +15,48 @@ const posts = (await getCollection("blog"))
 const projects = (await getCollection("projects"))
   .filter(project => !project.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0,3)
+  .slice(0,4)
 
 const stack = [
   { 
-    text: "Astro", 
-    icon: "astro", 
-    href: "https://astro.build" 
+    text: "Java 21", 
+    icon: "java", 
+    href: "https://dev.java/" 
   },
   { 
-    text: "Javascript", 
-    icon: "javascript", 
-    href: "https://www.javascript.com" 
+    text: "Spring Boot", 
+    icon: "spring", 
+    href: "https://spring.io/projects/spring-boot" 
   },
   { 
-    text: "Typescript", 
-    icon: "typescript", 
-    href: "https://www.typescriptlang.org" 
+    text: "Apache Kafka", 
+    icon: "kafka", 
+    href: "https://kafka.apache.org" 
   },
   { 
-    text: "Tailwind", 
-    icon: "tailwind", 
-    href: "https://tailwindcss.com" 
+    text: "Redis", 
+    icon: "redis", 
+    href: "https://redis.io" 
+  },
+  { 
+    text: "PostgreSQL", 
+    icon: "postgresql", 
+    href: "https://www.postgresql.org" 
+  },
+  { 
+    text: "Docker", 
+    icon: "docker", 
+    href: "https://www.docker.com" 
+  },
+  { 
+    text: "AWS", 
+    icon: "aws", 
+    href: "https://aws.amazon.com" 
+  },
+  { 
+    text: "Python", 
+    icon: "python", 
+    href: "https://www.python.org" 
   },
 ]
 ---
@@ -80,20 +100,23 @@ const stack = [
       <div class='relative w-full h-full flex items-center justify-center'>
         <div class='p-5 text-center'>
           <p class='animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
-            Hello, I am ...
+            Hello, I am
           </p>
           <p class='animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white'>
             Ariel Jaime
           </p>
-          <p class='animated text-sm md:text-base lg:text-lg opacity-75'>
-            Currently designing awesome products.
+          <p class='animated text-sm md:text-base lg:text-lg opacity-75 mt-1 max-w-lg mx-auto'>
+            Senior Backend Engineer & Distributed Systems Architect
           </p>
-          <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-5'>
-            <a href='/blog' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
-              Read my blog
+          <p class='animated text-xs md:text-sm text-neutral-500 dark:text-neutral-400 mt-1'>
+            Java 21 · High Concurrency · Distributed Primitives · Technical Mentoring
+          </p>
+          <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-6'>
+            <a href='/projects' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
+              Explore Projects
             </a>
             <a href='/work' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
-              View my work
+              View Experience
             </a>
           </div>
         </div>
@@ -106,47 +129,29 @@ const stack = [
 
       <!-- About Section -->
       <section class="animate">
-        <article>
-          <p>I am a <b><i>software developer </i></b>, <b><i>video game developer</i></b>, <b><i>team manager</i></b>, <b><i>mentor</i></b>, <b><i>student</i></b>, <b><i>minimalist</i></b>, <b><i>eternal optimist</i></b>, <b><i>new technology enthusiast</i></b> and <b><i>passionate cellist</i></b>.</p>
-          <p>I love building and breaking things. I am motivated by challenging projects with self-guided research and dynamic problem solving. My true passion is creating solutions 
-            and implement them while I enjoy listening to music.</p>
-          <p>During my career</p>
-          <p>I have built products ranging from marketing and ecommerce websites to complex enterprise apps with focus on delivering fast, elegant code along with delightful user interfaces.</p>
-          <p>Now</p>
-          <p>I am currently open to job proposals for positions such as video game developer with Unity engine, backend developer with Java and .Net, mobile application developer and frontend developer.</p>
+        <article class="space-y-4 text-neutral-800 dark:text-neutral-200 leading-relaxed">
+          <p>
+            I am a <b><i>Senior Backend Engineer</i></b> and <b><i>Distributed Systems Architect</i></b> with over 10 years in IT and 6+ years building high-throughput, mission-critical systems in the Java ecosystem.
+          </p>
+          <p>
+            Currently serving as <b><i>Squad Senior / Tech Lead & Mentor at Teamcubation</i></b>, where I train engineering teams and senior developers across modern backend architectures, virtual threads, reactive design, and agentic development workflows.
+          </p>
+          <p>
+            My engineering focus centers on <b>infrastructure-level components</b> — distributed key-value caches with Vector Clocks and WAL durability, non-blocking asynchronous event buses, and resilient microservices. I build with mathematical correctness, zero-compromise concurrency safety, and comprehensive test suites.
+          </p>
+          <p>
+            Certified <b>EF SET C2 (Proficient)</b> in English, partnering with international distributed teams across North America and Europe.
+          </p>
         </article>
-      </section>
-
-      <!-- Blog Preview Section -->
-      <section class="animate">
-        <div class="space-y-4">
-          <div class="flex justify-between">
-            <p class="font-semibold text-black dark:text-white">
-              Recent posts
-            </p>
-            <a href="/blog" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                All posts
-              </span>
-            </a>
-          </div>
-          <ul class="space-y-4">
-            {posts.map((post) => (
-              <li>
-                <ArrowCard entry={post} />
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       <!-- Tech Stack Section -->
       <section class="animate">
         <div class="space-y-4">
           <p class="font-semibold text-black dark:text-white">
-            Website build with
+            Core Technology Stack
           </p>
-          <div class="flex flex-wrap items-center gap-2 mt-5">
+          <div class="flex flex-wrap items-center gap-2 mt-4">
             {stack.map(item => (
               <StackCard 
                 text={item.text}
@@ -155,14 +160,9 @@ const stack = [
               />
             ))}
           </div>
-          <div>
-            Performing reactivity and statefulness, special guest
-            <a href="https://www.solidjs.com/" target="_blank" class="w-fit group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                SolidJS
-              </span>
-            </a>
-          </div>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-2">
+            Architectures: Hexagonal (Ports & Adapters), CQRS / Event Sourcing, Domain-Driven Design (DDD), Concurrency & Virtual Threads.
+          </p>
         </div>
       </section>
 
@@ -171,7 +171,7 @@ const stack = [
         <div class="space-y-4">
           <div class="flex justify-between">
             <p class="font-semibold text-black dark:text-white">
-              Recent projects
+              Featured Projects
             </p>
             <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
               <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
@@ -189,23 +189,48 @@ const stack = [
         </div>
       </section>
 
+      {posts.length > 0 && (
+        <!-- Blog Preview Section -->
+        <section class="animate">
+          <div class="space-y-4">
+            <div class="flex justify-between">
+              <p class="font-semibold text-black dark:text-white">
+                Articles & Notes
+              </p>
+              <a href="/blog" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                  All posts
+                </span>
+              </a>
+            </div>
+            <ul class="space-y-4">
+              {posts.map((post) => (
+                <li>
+                  <ArrowCard entry={post} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <!-- Contact Section -->
       <section class="animate">
         <div>
           <p class="font-semibold text-black dark:text-white">
             Let's Connect
           </p>
-          <p>
-            Reach out to me via email or on social media.
+          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+            Open to senior engineering roles, architectural consulting, and technical leadership opportunities worldwide.
           </p>
           <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
             {SOCIALS.map(social => (
               <div class="col-span-1 flex items-center gap-1">
-                <span class="whitespace-nowrap truncate">
+                <span class="whitespace-nowrap truncate text-sm">
                   {social.NAME}
                 </span>
               </div>
-              <div class="col-span-3 truncate">
+              <div class="col-span-3 truncate text-sm">
                 <a href={social.HREF} target="_blank" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
                   <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
                     {social.TEXT}
@@ -213,6 +238,7 @@ const stack = [
                 </a>
               </div>
             ))}
+          </div>
         </div>
       </section>
     </div>
