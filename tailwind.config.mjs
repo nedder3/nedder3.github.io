@@ -6,6 +6,19 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        brand: {
+          DEFAULT: "#0284c7",
+          light: "#38bdf8",
+          dark: "#0369a1",
+          accent: "#00d2ff",
+        },
+        surface: {
+          DEFAULT: "#0b0f17",
+          card: "#111827",
+          border: "#1e293b",
+        },
+      },
       fontFamily: {
         "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
       },

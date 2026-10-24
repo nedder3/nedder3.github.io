@@ -19,12 +19,12 @@ const projects = (await getCollection("projects"))
 
 const stack = [
   { 
-    text: "Java 21", 
+    text: "Java 21 LTS", 
     icon: "java", 
     href: "https://dev.java/" 
   },
   { 
-    text: "Spring Boot", 
+    text: "Spring Boot 3", 
     icon: "spring", 
     href: "https://spring.io/projects/spring-boot" 
   },
@@ -49,12 +49,12 @@ const stack = [
     href: "https://www.docker.com" 
   },
   { 
-    text: "AWS", 
+    text: "AWS Cloud", 
     icon: "aws", 
     href: "https://aws.amazon.com" 
   },
   { 
-    text: "Python", 
+    text: "Python & LLMs", 
     icon: "python", 
     href: "https://www.python.org" 
   },
@@ -71,7 +71,7 @@ const stack = [
   </div>
 
   <!-- Dark Theme: Stars -->
-  <div class='absolute inset-0 bg-black hidden dark:block'>
+  <div class='absolute inset-0 bg-[#0b0f17] hidden dark:block'>
     <div id='stars1' class='fixed inset-0'></div>
     <div id='stars2' class='fixed inset-0'></div>
     <div id='stars3' class='fixed inset-0'></div>
@@ -88,78 +88,103 @@ const stack = [
   <script is:inline src="/js/bg.js"></script>
   
   <!-- HERO -->
-  <section class="relative h-screen w-full">
-    <div id="planetcont" class='animate absolute inset-0 top-1/4 overflow-hidden'>
-      <div id="crescent" class='absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 dark:from-white/75 from-0% to-transparent to-5%'>
-        <div id="planet" class='w-full h-full bg-white dark:bg-black rounded-full p-[1px] overflow-hidden flex justify-center'>
-          <div id="blur" class='w-full h-20 rounded-full bg-neutral-900/25 dark:bg-white/25 blur-3xl'/>
+  <section class="relative min-h-[90vh] w-full flex items-center justify-center">
+    <div id="planetcont" class='animate absolute inset-0 top-1/4 overflow-hidden pointer-events-none'>
+      <div id="crescent" class='absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-sky-500/20 dark:from-sky-400/30 from-0% to-transparent to-10%'>
+        <div id="planet" class='w-full h-full bg-white dark:bg-[#0b0f17] rounded-full p-[1px] overflow-hidden flex justify-center'>
+          <div id="blur" class='w-full h-24 rounded-full bg-sky-500/10 dark:bg-sky-400/15 blur-3xl'/>
         </div>
       </div>
     </div>
-    <div class="animate absolute h-full w-full flex items-center justify-center">
-      <div class='relative w-full h-full flex items-center justify-center'>
-        <div class='p-5 text-center'>
-          <p class='animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
-            Hello, I am
-          </p>
-          <p class='animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white'>
-            Ariel Jaime
-          </p>
-          <p class='animated text-sm md:text-base lg:text-lg opacity-75 mt-1 max-w-xl mx-auto'>
-            Senior Backend Engineer & Distributed AI Systems Architect
-          </p>
-          <p class='animated text-xs md:text-sm text-neutral-500 dark:text-neutral-400 mt-1'>
-            Java 21 · High Concurrency · Multi-Agent AI Orchestration · Knowledge Graphs
-          </p>
-          <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-6'>
-            <a href='/projects' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
-              Explore Projects
-            </a>
-            <a href='/work' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
-              View Experience
-            </a>
-          </div>
+
+    <div class="animate relative w-full max-w-screen-md mx-auto p-5 text-center z-10 py-20">
+      <!-- Live Status Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25 mb-6 shadow-sm">
+        <span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Open to Worldwide Remote Roles (USD) · EF SET C2 Certified</span>
+      </div>
+
+      <h1 class='text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-slate-900 dark:text-slate-50'>
+        Ariel Jaime
+      </h1>
+
+      <p class='text-lg md:text-xl font-semibold text-sky-600 dark:text-sky-400 mt-3'>
+        Senior Backend Engineer & Distributed AI Systems Architect
+      </p>
+
+      <p class='text-xs md:text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-lg mx-auto'>
+        Java 21 LTS · High Concurrency · Autonomous Multi-Agent Swarms · Knowledge Graphs
+      </p>
+
+      <div id="ctaButtons" class='flex flex-wrap gap-3.5 justify-center mt-7'>
+        <a href='/projects' class='py-2.5 px-5 rounded-lg text-xs md:text-sm font-semibold bg-sky-600 hover:bg-sky-500 text-white dark:bg-sky-500 dark:hover:bg-sky-400 dark:text-slate-950 shadow-md shadow-sky-500/20 transition-all duration-200'>
+          Explore Systems & Projects
+        </a>
+        <a href='/work' class='py-2.5 px-5 rounded-lg text-xs md:text-sm font-medium border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/40 hover:bg-slate-100 hover:dark:bg-slate-800 text-slate-800 dark:text-slate-200 transition-all duration-200'>
+          View Experience
+        </a>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-12 text-left">
+        <div class="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 shadow-sm backdrop-blur-sm">
+          <p class="text-2xl font-bold font-mono text-sky-600 dark:text-sky-400">10 Yrs</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">IT & Architecture</p>
+        </div>
+        <div class="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 shadow-sm backdrop-blur-sm">
+          <p class="text-2xl font-bold font-mono text-sky-600 dark:text-sky-400">6+ Yrs</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Enterprise Java</p>
+        </div>
+        <div class="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 shadow-sm backdrop-blur-sm">
+          <p class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">359</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Automated Tests</p>
+        </div>
+        <div class="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/60 shadow-sm backdrop-blur-sm">
+          <p class="text-2xl font-bold font-mono text-indigo-600 dark:text-indigo-400">8 Roles</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Autonomous Swarm</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="relative bg-white dark:bg-black">
-    <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+  <div class="relative bg-white dark:bg-[#0b0f17]">
+    <div class="mx-auto max-w-screen-sm p-5 space-y-20 pb-20">
 
       <!-- About Section -->
       <section class="animate">
-        <article class="space-y-4 text-neutral-800 dark:text-neutral-200 leading-relaxed">
+        <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-sm md:text-base">
           <p>
-            I am a <b><i>Senior Backend Engineer</i></b> and <b><i>Distributed AI Systems Architect</i></b> with 10 years of experience in IT and 6+ years specializing in enterprise Java ecosystems, high-concurrency systems, and autonomous agent architectures.
+            I am a <strong class="text-slate-900 dark:text-slate-100">Senior Backend Engineer</strong> and <strong class="text-slate-900 dark:text-slate-100">Distributed AI Systems Architect</strong> with 10 years in IT and 6+ years building mission-critical systems in enterprise Java environments.
           </p>
           <p>
-            Currently serving as <b><i>Squad Senior / Tech Lead & Mentor at Teamcubation</i></b>, leading technical squads and training developers across modern cloud-native architectures, Java 21, and agentic engineering workflows.
+            Currently serving as <strong class="text-slate-900 dark:text-slate-100">Squad Senior / Tech Lead & Mentor at Teamcubation</strong>, where I guide engineering squads and coach senior software engineers across modern cloud architectures, Java 21, microservices, and agentic AI workflows.
           </p>
           <p>
-            My engineering practice bridges two mission-critical domains:
+            My engineering practice bridges two mission-critical pillars:
           </p>
-          <ul class="list-disc pl-5 space-y-2">
-            <li>
-              <b>Distributed Infrastructure Primitives:</b> Fault-tolerant key-value caches with Vector Clocks and WAL durability, lock-free in-memory event buses, and domain-driven microservices engineered for zero thread contention.
+          <ul class="space-y-2.5 pl-2">
+            <li class="flex items-start gap-2.5">
+              <span class="text-sky-500 font-bold">▹</span>
+              <span><strong class="text-slate-900 dark:text-slate-100">Distributed Infrastructure Primitives:</strong> Fault-tolerant key-value caches with Vector Clocks, WAL durability with CRC32 integrity, and lock-free event buses built for zero thread contention under heavy workloads.</span>
             </li>
-            <li>
-              <b>Autonomous AI Systems & Knowledge Graphs:</b> Production-grade multi-agent swarms with strict Single Responsibility Principles (SRP), automated Red/Green TDD quality gates, knowledge graphs exceeding 33,000 nodes, and anti-hallucination deterministic LLM extraction pipelines.
+            <li class="flex items-start gap-2.5">
+              <span class="text-sky-500 font-bold">▹</span>
+              <span><strong class="text-slate-900 dark:text-slate-100">Autonomous Multi-Agent AI Systems:</strong> Multi-agent swarms with strict Single Responsibility Principles (SRP), automated Red/Green TDD quality gates, knowledge graphs exceeding 33,000 nodes, and anti-hallucination deterministic LLM extraction pipelines.</span>
             </li>
           </ul>
-          <p>
-            Certified <b>EF SET C2 (Proficient)</b> in English, partnering with international distributed teams across North America and Europe.
-          </p>
-        </article>
+        </div>
       </section>
 
       <!-- Tech Stack Section -->
       <section class="animate">
         <div class="space-y-4">
-          <p class="font-semibold text-black dark:text-white">
-            Core Technology Stack
-          </p>
-          <div class="flex flex-wrap items-center gap-2 mt-4">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h2 class="font-semibold text-slate-900 dark:text-slate-100 tracking-tight">
+              Core Technologies & Infrastructure
+            </h2>
+            <span class="text-xs font-mono text-slate-500">Verified Stack</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5 pt-2">
             {stack.map(item => (
               <StackCard 
                 text={item.text}
@@ -168,8 +193,8 @@ const stack = [
               />
             ))}
           </div>
-          <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-2">
-            Engineering Domains: Distributed Systems (Vector Clocks, WAL, CQRS), Agentic AI Swarms (Hermes, Ollama, Graphify), Concurrency (Virtual Threads, CAS Lock-Free).
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-mono">
+            Hexagonal Architecture · CQRS / Event Sourcing · Concurrency & Virtual Threads · Multi-Agent Swarms · Knowledge Graphs
           </p>
         </div>
       </section>
@@ -177,17 +202,15 @@ const stack = [
       <!-- Project Preview Section -->
       <section class="animate">
         <div class="space-y-4">
-          <div class="flex justify-between">
-            <p class="font-semibold text-black dark:text-white">
-              Featured Projects
-            </p>
-            <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                All projects
-              </span>
+          <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h2 class="font-semibold text-slate-900 dark:text-slate-100 tracking-tight">
+              Featured Systems & Architecture Projects
+            </h2>
+            <a href="/projects" class="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline underline-offset-4 flex items-center gap-1">
+              All projects &rarr;
             </a>
           </div>
-          <ul class="space-y-4">
+          <ul class="space-y-3.5 pt-2">
             {projects.map((project) => (
               <li>
                 <ArrowCard entry={project} />
@@ -201,17 +224,15 @@ const stack = [
         <!-- Blog Preview Section -->
         <section class="animate">
           <div class="space-y-4">
-            <div class="flex justify-between">
-              <p class="font-semibold text-black dark:text-white">
-                Articles & Architecture Notes
-              </p>
-              <a href="/blog" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-                <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                  All posts
-                </span>
+            <div class="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
+              <h2 class="font-semibold text-slate-900 dark:text-slate-100 tracking-tight">
+                Architecture Notes & Articles
+              </h2>
+              <a href="/blog" class="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline underline-offset-4 flex items-center gap-1">
+                All articles &rarr;
               </a>
             </div>
-            <ul class="space-y-4">
+            <ul class="space-y-3.5 pt-2">
               {posts.map((post) => (
                 <li>
                   <ArrowCard entry={post} />
@@ -224,27 +245,19 @@ const stack = [
 
       <!-- Contact Section -->
       <section class="animate">
-        <div>
-          <p class="font-semibold text-black dark:text-white">
+        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-900/40">
+          <h2 class="font-semibold text-slate-900 dark:text-slate-100 tracking-tight text-lg">
             Let's Connect
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1.5">
+            Available for worldwide remote senior backend engineering, distributed systems architecture consulting, and agentic AI systems design (USD).
           </p>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
-            Open to senior engineering roles, distributed architecture consulting, and agentic AI systems design worldwide.
-          </p>
-          <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
             {SOCIALS.map(social => (
-              <div class="col-span-1 flex items-center gap-1">
-                <span class="whitespace-nowrap truncate text-sm">
-                  {social.NAME}
-                </span>
-              </div>
-              <div class="col-span-3 truncate text-sm">
-                <a href={social.HREF} target="_blank" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-                  <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                    {social.TEXT}
-                  </span>
-                </a>
-              </div>
+              <a href={social.HREF} target="_blank" class="flex flex-col p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 hover:border-sky-500/50 hover:dark:border-sky-400/50 transition-all duration-200">
+                <span class="text-xs uppercase font-mono text-slate-500">{social.NAME}</span>
+                <span class="text-xs font-medium text-slate-900 dark:text-slate-200 truncate mt-1">{social.TEXT}</span>
+              </a>
             ))}
           </div>
         </div>
