@@ -2,8 +2,8 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "Ariel Jaime | Senior Backend Engineer",
-  DESCRIPTION: "Senior Backend Engineer and Distributed Systems Architect specializing in Java 21, high-concurrency architectures, and scalable distributed primitives.",
+  TITLE: "Ariel Jaime | Senior Backend & AI Systems Engineer",
+  DESCRIPTION: "Senior Backend Engineer and Distributed AI Systems Architect specializing in Java 21, high-concurrency architectures, and autonomous multi-agent systems.",
   AUTHOR: "Ariel Jaime",
 }
 
@@ -21,8 +21,8 @@ export const BLOG: Page = {
 
 // Projects Page 
 export const PROJECTS: Page = {
-  TITLE: "Engineering Projects",
-  DESCRIPTION: "Production systems, distributed infrastructure, non-blocking libraries, and open-source tooling.",
+  TITLE: "Engineering & AI Projects",
+  DESCRIPTION: "Distributed systems, autonomous multi-agent architectures, non-blocking libraries, and open-source tooling.",
 }
 
 // Search Page
@@ -44,6 +44,10 @@ export const LINKS: Links = [
   { 
     TEXT: "Projects", 
     HREF: "/projects", 
+  },
+  { 
+    TEXT: "Blog", 
+    HREF: "/blog", 
   },
 ]
 
