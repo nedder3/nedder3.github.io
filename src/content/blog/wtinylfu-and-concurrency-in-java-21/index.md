@@ -63,23 +63,37 @@ W-TinyLFU (Window TinyLFU) organizes cache capacity into distinct segments:
 #### Count-Min Sketch Frequency Estimation
 
 To avoid storing unbounded counters, TinyLFU uses a 4-bit **Count-Min Sketch**:
-- A 2D array of 4-bit counters with 4 independent hash functions.
-- On access, the corresponding 4 counters are incremented (saturating at 15).
-- Frequency estimation queries return $\min_{i=1..4} M[i, h_i(key)]$.
-- **Aging & Decay:** Every $W$ admissions, all counters in the sketch are halved via bit-shifting (`c >> 1`), preventing stale popularity biases.
+- A 2D array of 4-bit counters indexed by 4 independent hash functions.
+- On each access, the corresponding 4 counters are incremented (saturating at 15).
+- Frequency estimation queries return the minimum observed counter:
+  `estimate(key) = min(M[0, h₀(key)], M[1, h₁(key)], M[2, h₂(key)], M[3, h₃(key)])`
+- **Aging & Reset:** Every window of `W` admissions, all counters across the sketch are halved via bit-shifting (`counter >> 1`), preventing stale popularity biases.
 
 ---
 
 ### 2. Multi-Master Causality with Vector Clocks
 
-In a distributed peer-to-peer or active-active cache topology, physical clocks cannot be relied upon to order events due to clock drift (NTP skew).
+In a distributed peer-to-peer or active-active cache topology, physical wall-clock timestamps cannot be trusted to order mutations due to network latency and clock drift (NTP skew).
 
-Each cache node maintains a **Vector Clock** $V$:
-$$V_i[j] = \text{number of events observed by node } i \text{ that originated at node } j$$
+Each cache node maintains a **Vector Clock** `V`, defined as:
+```text
+V[i][j] = number of state mutations observed by node i that originated at node j
+```
 
-#### Causality Rules:
-1. **Happens-Before ($A < B$):** Event $A$ causally precedes $B$ if and only if $\forall k, V_A[k] \le V_B[k]$ and $\exists k, V_A[k] < V_B[k]$.
-2. **Concurrent Mutation ($A \parallel B$):** If neither $V_A \le V_B$ nor $V_B \le V_A$, a concurrent write conflict has occurred.
+#### Causality & Conflict Detection Rules:
+
+1. **Happens-Before (`A → B`):**
+   Event `A` causally precedes event `B` if and only if every component of `V_A` is less than or equal to `V_B`, and at least one component is strictly smaller:
+   ```text
+   (∀k : V_A[k] ≤ V_B[k])  AND  (∃k : V_A[k] < V_B[k])
+   ```
+
+2. **Concurrent Mutation Conflict (`A || B`):**
+   If neither vector dominates the other:
+   ```text
+   NOT (V_A ≤ V_B)  AND  NOT (V_B ≤ V_A)
+   ```
+   A concurrent write conflict has occurred across nodes.
 
 In `distributed-cache-engine`, concurrent mutations trigger deterministic domain merge strategies or surface conflicting versions to callers using explicit version tokens, preventing silent data loss.
 
@@ -89,7 +103,7 @@ In `distributed-cache-engine`, concurrent mutations trigger deterministic domain
 
 Rather than using global monitors (`synchronized`) which serialize hot paths, the engine is structured around **lock striping** and **Java 21 Project Loom (Virtual Threads)**:
 
-- **Partitioned Concurrency:** Keys are hashed into $N$ power-of-two stripes ($N = 64$ or $128$), ensuring writes to different keys proceed completely in parallel without thread contention.
+- **Partitioned Concurrency:** Keys are hashed into `N` power-of-two stripes (`N = 64` or `128`), ensuring writes to different keys proceed completely in parallel without thread contention.
 - **Unbounded Lightweight Concurrency:** Network replication and WAL write-backs are dispatched via `Executors.newVirtualThreadPerTaskExecutor()`, utilizing ephemeral virtual threads that yield to the carrier thread pool on I/O operations without OS thread bloat.
 - **Atomic State Verification:** Key metadata transitions leverage atomic CAS operations via `VarHandle` and `AtomicReference`.
 
