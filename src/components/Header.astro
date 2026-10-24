@@ -1,22 +1,22 @@
 ---
-import { SITE, LINKS } from "@consts"
+import { LINKS } from "@consts"
 import { cn } from "@lib/utils"
 const { pathname } = Astro.url
 const subpath = pathname.match(/[^/]+/g)
 import Container from "@components/Container.astro"
 ---
 
-<header id="header" class="fixed top-0 w-full h-16 z-50 ">
+<header id="header" class="fixed top-0 w-full h-16 z-50">
   <Container size="md">
     <div class="relative h-full w-full">
-      <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold">
-        <a href="/" class="flex gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
-          <svg class="size-6 fill-current">
-            <use href="/brand.svg#brand"></use>
-          </svg>
-          <div>
-            {SITE.TITLE}
-          </div>
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center">
+        <a href="/" class="flex items-center gap-2 group transition-colors duration-200">
+          <span class="font-bold tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-sky-600 dark:group-hover:text-sky-400">
+            Ariel Jaime
+          </span>
+          <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+            Staff Backend / AI
+          </span>
         </a>
       </div>
 
@@ -24,7 +24,7 @@ import Container from "@components/Container.astro"
       <nav class="hidden md:flex items-center justify-center text-sm gap-1">
         {
           LINKS.map((LINK) => (
-            <a href={LINK.HREF} class={cn("h-8 rounded-full px-3 text-current", "flex items-center justify-center", "transition-colors duration-300 ease-in-out", pathname === LINK.HREF || "/" + subpath?.[0] === LINK.HREF ? "bg-black dark:bg-white text-white dark:text-black" : "hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white")}>
+            <a href={LINK.HREF} class={cn("h-8 rounded-full px-3 text-current", "flex items-center justify-center", "transition-colors duration-200", pathname === LINK.HREF || "/" + subpath?.[0] === LINK.HREF ? "bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-medium" : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-100")}>
               {LINK.TEXT}
             </a>
           ))
@@ -32,33 +32,33 @@ import Container from "@components/Container.astro"
       </nav>
     </div>
 
-    <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1">
-      <a href="/search" aria-label={`Search blog posts and projects on ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out", pathname === "/search" || "/" + subpath?.[0] === "/search" ? "pointer-events-none bg-black dark:bg-white text-white dark:text-black" : "")}>
-        <svg class="size-full">
+    <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+      <a href="/search" aria-label="Search articles and projects" class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/60", "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100", "border border-slate-200 dark:border-slate-800", "transition-colors duration-200", pathname === "/search" || "/" + subpath?.[0] === "/search" ? "pointer-events-none bg-slate-900 dark:bg-white text-white dark:text-slate-950" : "")}>
+        <svg class="size-full stroke-current" fill="none" stroke-width="2">
           <use href="/ui.svg#search"></use>
         </svg>
       </a>
 
-      <a href="/rss.xml" target="_blank" aria-label={`Rss feed for ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out")}>
-        <svg class="size-full">
+      <a href="/rss.xml" target="_blank" aria-label="RSS Feed" class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/60", "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100", "border border-slate-200 dark:border-slate-800", "transition-colors duration-200")}>
+        <svg class="size-full stroke-current" fill="none" stroke-width="2">
           <use href="/ui.svg#rss"></use>
         </svg>
       </a>
 
-      <button id="header-theme-button" aria-label={`Toggle light and dark theme`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out")}>
-        <svg class="size-full block dark:hidden">
+      <button id="header-theme-button" aria-label="Toggle light and dark theme" class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/60", "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100", "border border-slate-200 dark:border-slate-800", "transition-colors duration-200")}>
+        <svg class="size-full block dark:hidden stroke-current" fill="none" stroke-width="2">
           <use href="/ui.svg#sun"></use>
         </svg>
-        <svg class="size-full hidden dark:block">
+        <svg class="size-full hidden dark:block stroke-current" fill="none" stroke-width="2">
           <use href="/ui.svg#moon"></use>
         </svg>
       </button>
 
-      <button id="header-drawer-button" aria-label={`Toggle drawer open and closed`} class={cn("flex md:hidden", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/20", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/25", "transition-colors duration-300 ease-in-out")}>
-        <svg id="drawer-open" class="size-full">
+      <button id="header-drawer-button" aria-label="Toggle drawer menu" class={cn("flex md:hidden", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800/60", "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100", "border border-slate-200 dark:border-slate-800", "transition-colors duration-200")}>
+        <svg id="drawer-open" class="size-full stroke-current" fill="none" stroke-width="2">
           <use href="/ui.svg#menu"></use>
         </svg>
-        <svg id="drawer-close" class="size-full">
+        <svg id="drawer-close" class="size-full stroke-current" fill="none" stroke-width="2">
           <use href="/ui.svg#x"></use>
         </svg>
       </button>
