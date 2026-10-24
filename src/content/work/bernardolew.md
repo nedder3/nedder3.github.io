@@ -1,10 +1,10 @@
 ---
 company: "Bernardo Lew"
-role: "Application developer"
+role: "Enterprise Application Developer"
 dateStart: "01/01/2020"
 dateEnd: "01/01/2021"
 ---
 
-- Software development for the company's product in JAVA J2SE, Spring Boot - Mysql, PostgreSQL, MongoDB, Sqlite database administration.
-- Routing and network configuration for laboratory equipment and its connection to the management software.
-- Development of internal applications in C#, PHP, .NET, Html - CSS - Javascript, bootstrap.
+- Engineered enterprise software solutions using Java (J2SE, Spring Boot) with multi-database persistence (MySQL, PostgreSQL, MongoDB, SQLite).
+- Designed and configured networking protocols and routing integrations connecting clinical laboratory hardware directly to enterprise management software.
+- Developed internal business automation tools and service integrations utilizing C#, .NET Core, and modern web interfaces.

@@ -1,13 +1,11 @@
 ---
 company: "Alkemy"
-role: "Programming mentor at MercadoLibre bootcamp"
+role: "Programming Mentor - MercadoLibre Bootcamp"
 dateStart: "01/01/2024"
-dateEnd: "01/06/2024"
+dateEnd: "06/01/2024"
 ---
 
-- Mentoring junior developers to improve work quality and efficiency.
-- Coordination, facilitation and monitoring of programs requested by the MercadoLibre client.
-- Team management through agile methodologies.
-- Review and supervision of comprehensive code projects written in Java Spring Boot with different    databases.
-- Tasks in close collaboration with clients to understand needs and objectives.
-
+- Led technical mentoring for developers selected for MercadoLibre's specialized engineering acceleration program.
+- Directed architecture reviews and supervised end-to-end capstone projects built on Java 21, Spring Boot, and distributed database systems.
+- Guided squads on domain modeling, RESTful API design standards, and robust unit/integration testing with JUnit and Mockito.
+- Coordinated closely with enterprise stakeholders to ensure alignment with production engineering standards and sprint goals.
