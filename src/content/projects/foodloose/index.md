@@ -2,7 +2,7 @@
 title: "Food Loose"
 summary: "Game made for global game jam 2024"
 date: "Jan 17 2024"
-draft: false
+draft: true
 tags:
 - Unity
 - Csharp

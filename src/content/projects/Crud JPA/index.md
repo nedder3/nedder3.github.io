@@ -2,7 +2,7 @@
 title: "crud springboot JPA"
 summary: "a crud personal project"
 date: "May 31 2023"
-draft: false
+draft: true
 tags:
 - Java
 - JPA

@@ -2,7 +2,7 @@
 title: "App fullstack employees"
 summary: "Angular 16 CRUD with .NET 6 Web API using Entity Framework Core."
 date: "Mar 17 2022"
-draft: false
+draft: true
 tags:
 - Csharp
 - .Net

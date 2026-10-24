@@ -2,7 +2,7 @@
 title: "Witchcraft"
 summary: "Game made for Global Game Jam 2020"
 date: "Jan 23 2020"
-draft: false
+draft: true
 tags:
 - Unity
 - 2d
